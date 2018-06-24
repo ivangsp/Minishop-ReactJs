@@ -9,3 +9,8 @@ export const errorOcuured = (errorMsg) => ({
   type: type.ERROR_OCCURED,
   payload: errorMsg
 });
+
+export const handlePageClick = (pageNumber) => ({
+  type: type.SET_PRODUCTS_PER_PAGE,
+  payload: pageNumber
+});

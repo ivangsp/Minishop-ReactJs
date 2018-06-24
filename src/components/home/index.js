@@ -9,16 +9,28 @@ class Home extends Component {
     componentDidMount () {
         this.props.fetchProducts();
     }
+
     render () {
-        return (
-          <div className='container-fluid'>
-            <NavBar />
-            <ProductList products={[]} />
-          </div>
-        );
+        console.log('oooop', this.props.products)
+        return <div className='container-fluid'>
+          <NavBar />
+          <ProductList products={this.props.products} />
+          <nav aria-label='Page navigation example'>
+            <ul className='pagination'>
+              <li className='page-item'>
+                <a className='page-link' onClick={() => this.props.handlePageClick(-1)}>Previous</a>
+              </li>
+              <li className='page-item'>
+                <a className='page-link' onClick={() => this.props.handlePageClick(1)}>Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>;
     }
 }
 Home.propTypes = {
-    fetchProducts: PropTypes.func.isRequired
+    fetchProducts: PropTypes.func.isRequired,
+    handlePageClick: PropTypes.func.isRequired,
+    products: PropTypes.array.isRequired
 };
 export default Home;
