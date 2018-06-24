@@ -3,12 +3,8 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings"
-    ],
+    "extends": ["standard", "standard-react"],
+
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
