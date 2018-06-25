@@ -19,3 +19,17 @@ export const filterBy = (item) => ({
   type: type.FILTERBY,
   payload: item
 });
+
+export const addProductToCart = (prod) => ({
+  type: type.ADD_TO_CART,
+  payload: prod
+});
+
+export const increaseQty = (index, qty) => ({
+  type: type.INCREASE_QTY,
+  payload: {index: index, qty: qty}
+});
+
+// export const viewBasket = () => {
+//   type: type.VIEW_BASKET
+// }

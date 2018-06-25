@@ -5,7 +5,9 @@ const intitialState = {
   filteredProducts: [],
   numPages: undefined,
   currentPage: 0,
-  loading: true
+  loading: true,
+  basket: [],
+  baskethidden: true
 };
 
 const reducer = (state = intitialState, action) => {
@@ -35,8 +37,7 @@ const reducer = (state = intitialState, action) => {
       return state;
 
     case type.FILTERBY:
-      console.log('lll', action.payload);
-      debugger;
+
       if (action.payload.country !== undefined && action.payload.instock === undefined) {
         const newArray = state.products.filter((el) => {
           return el.store === action.payload.country;
@@ -64,7 +65,40 @@ const reducer = (state = intitialState, action) => {
       return {...state,
         filteredProducts: state.products,
         productsPerPage: state.products.slice((state.currentPage * 12), ((state.currentPage + 1) * 12))};
+
+    case type.ADD_TO_CART:
+
+      if (!containsObject(action.payload, state.basket)) {
+        var product = action.payload;
+        product['qty'] = 1;
+        const oldBasket = state.basket
+        oldBasket.push(product);
+        return {...state, basket: oldBasket};
+      }
+      return state;
+
+    case type.INCREASE_QTY:
+      var basketItem = state.basket[action.payload.index];
+      const newQty = action.payload.qty + basketItem.Qty;
+      basketItem.Qty = newQty;
+      var newBasket = state.basket;
+      newBasket[action.payload.index] = basketItem;
+      return {...state, basketItem: newBasket};
+
+    case type.VIEW_BASKET:
+      return {...state, baskethidden: !state.baskethidden};
   }
   return state;
 };
+
+function containsObject (obj, list) {
+  var i;
+  for (i = 0; i < list.length; i++) {
+    if (list[i].id === obj.id) {
+      return true;
+    }
+  }
+
+  return false;
+}
 export default reducer;

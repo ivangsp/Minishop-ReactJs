@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 import ProductItem from './ProductItem';
 
-const ProductList = ({products}) => {
+const ProductList = ({products, addProductToCart}) => {
   const prods = products.map((prod, index) => {
-    return <ProductItem product={prod} key={index} />;
+    return <ProductItem
+      product={prod} key={index}
+      addProductToCart={(prod) => addProductToCart(prod)} />;
   });
 
   return (
@@ -17,6 +19,8 @@ const ProductList = ({products}) => {
   );
 };
 ProductList.propTypes = {
-  products: PropTypes.array.isRequired
+  products: PropTypes.array.isRequired,
+  addProductToCart: PropTypes.func.isRequired
+
 };
 export default ProductList;
