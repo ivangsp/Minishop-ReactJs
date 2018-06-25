@@ -2,3 +2,13 @@
     height: 150px;
     width: auto;
 }
+.outStock {
+    color: red;
+}
+instock {
+    font-size: small;
+}
+.spinner {
+    font-size:48px;
+    color:green;
+}

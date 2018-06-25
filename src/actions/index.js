@@ -14,3 +14,8 @@ export const handlePageClick = (pageNumber) => ({
   type: type.SET_PRODUCTS_PER_PAGE,
   payload: pageNumber
 });
+
+export const filterBy = (item) => ({
+  type: type.FILTERBY,
+  payload: item
+});
