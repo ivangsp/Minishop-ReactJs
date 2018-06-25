@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 
 const BasketItem = ({prod, increaseQty}) => {
   return (
-    <div className='row'>
+    <div className='row mb-3'>
       <div className='col-4'>
-        <img src={prod.image} alt='' />
+        <img src={prod.image} alt='' className='imageSize' />
       </div>
       <div className='col'>
         <p>{prod.name}</p>
-        <p>{prod.qty}
-          <span><i className='fas fa-plus' onClick={() => increaseQty(1)} /></span>
-          <span><i className='fas fa-minus' onClick={() => increaseQty(-1)} /></span>
+        <p>QTY: {prod.qty}
+          <a><i className=' fas fa-plus ml-2 icon' onClick={() => increaseQty(prod, 1)} /></a>
+          <a><i className='fas fa-minus ml-2 icon' onClick={() => increaseQty(prod, -1)} /></a>
         </p>
-        <p>{prod.price}</p>
+        <p>Unit price: {prod.price}</p>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const NavBar = ({hideBasket, basket}) => {
+const NavBar = ({hideBasket, basket, numItemBasket}) => {
   return (
     <div>
       <nav className='navbar navbar-light bg-light justify-content-between'>
@@ -12,7 +12,7 @@ const NavBar = ({hideBasket, basket}) => {
           onClick={() => hideBasket()}
           data-toggle='modal' data-target='#exampleModalCenter'>
           <i className='fas fa-shopping-cart' />
-          <span>{basket.length > 0 ? basket.length : null}</span>
+          <span>{numItemBasket > 0 ? numItemBasket : null}</span>
         </button>
       </nav>
     </div>
@@ -20,7 +20,8 @@ const NavBar = ({hideBasket, basket}) => {
 };
 NavBar.propTypes = {
   hideBasket: PropTypes.func,
-  basket: PropTypes.array.isRequired
+  basket: PropTypes.array.isRequired,
+  numItemBasket: PropTypes.number.isRequired
 
 };
 export default NavBar;

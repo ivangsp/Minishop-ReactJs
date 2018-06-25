@@ -7,7 +7,9 @@ const intitialState = {
   currentPage: 0,
   loading: true,
   basket: [],
-  baskethidden: true
+  numItemBasket: 0,
+  baskethidden: true,
+  totalAmount: 0.0
 };
 
 const reducer = (state = intitialState, action) => {
@@ -37,7 +39,6 @@ const reducer = (state = intitialState, action) => {
       return state;
 
     case type.FILTERBY:
-
       if (action.payload.country !== undefined && action.payload.instock === undefined) {
         const newArray = state.products.filter((el) => {
           return el.store === action.payload.country;
@@ -71,19 +72,42 @@ const reducer = (state = intitialState, action) => {
       if (!containsObject(action.payload, state.basket)) {
         var product = action.payload;
         product['qty'] = 1;
-        const oldBasket = state.basket
+        const oldBasket = state.basket;
         oldBasket.push(product);
-        return {...state, basket: oldBasket};
+        const numItemBasket = state.numItemBasket + 1;
+        // update the totalAmount
+        const totalAmount = updateTotalAmount(oldBasket);
+        return {...state, basket: oldBasket, numItemBasket: numItemBasket, totalAmount: totalAmount};
       }
       return state;
 
     case type.INCREASE_QTY:
-      var basketItem = state.basket[action.payload.index];
-      const newQty = action.payload.qty + basketItem.Qty;
-      basketItem.Qty = newQty;
-      var newBasket = state.basket;
-      newBasket[action.payload.index] = basketItem;
-      return {...state, basketItem: newBasket};
+      var basketItem = action.payload.prod;
+      const index = state.basket.indexOf(basketItem);
+
+      // check if the product exists in the basket
+      if (index > -1) {
+        const newQty = action.payload.qty + action.payload.prod.qty;
+
+        var newBasket = state.basket;
+        var numItems = state.numItemBasket;
+
+        // if new qty = 0, remove from basket
+        // if also action.payload.qty=0,
+        // means its a request to remove the prod from basket
+        if (newQty <= 0 || action.payload.qty === 0) {
+          newBasket.splice(index, 1);
+          numItems = numItems - 1;
+        } else {
+          basketItem.qty = newQty;
+          newBasket[index] = basketItem;
+        }
+        // update the totalAmount
+        const totalAmount = updateTotalAmount(newBasket);
+        return {...state, basket: newBasket, numItemBasket: numItems, totalAmount: totalAmount};
+      }
+      break;
+      // return state;
 
     case type.VIEW_BASKET:
       return {...state, baskethidden: !state.baskethidden};
@@ -101,4 +125,13 @@ function containsObject (obj, list) {
 
   return false;
 }
+
+const updateTotalAmount = (basket) => {
+  var i;
+  var amount = 0;
+  for (i = 0; i < basket.length; i++) {
+    amount = amount + basket[i].qty * basket[i].price;
+  }
+  return amount;
+};
 export default reducer;

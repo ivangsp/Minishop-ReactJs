@@ -15,7 +15,8 @@ class Home extends Component {
 
     render () {
         return <div className='container-fluid'>
-          <NavBar hideBasket={() => this.props.hideBasket()} basket={this.props.basket} />
+          <NavBar hideBasket={() => this.props.hideBasket()}
+            basket={this.props.basket} numItemBasket={this.props.numItemBasket} />
           {this.props.loading
                 ? <div className='row'>
                   <div className='col-6 col-md-offset-3'>
@@ -38,7 +39,8 @@ class Home extends Component {
                     <BasketList
                       basket={this.props.basket}
                       increaseQty={(index, qty) => this.props.increaseQty(index, qty)}
-                      basketVisible={this.props.basketVisible} />
+                      basketVisible={this.props.basketVisible}
+                      totalAmount={this.props.totalAmount} />
                   </div>
                   <div className='row'>
                     <div className='col-2 col-md-offset-5 '>
@@ -66,6 +68,9 @@ Home.propTypes = {
     increaseQty: PropTypes.number.isRequired,
     basket: PropTypes.array.isRequired,
     hideBasket: PropTypes.func.isRequired,
-    basketVisible: PropTypes.bool.isRequired
+    basketVisible: PropTypes.bool.isRequired,
+    numItemBasket: PropTypes.number.isRequired,
+    totalAmount: PropTypes.number.isRequired
+
 };
 export default Home;

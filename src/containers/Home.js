@@ -6,13 +6,16 @@ import {
 } from '../actions/index';
 
 const mapStateToProps =
-    ({productsPerPage, loading, currentPage, numPages, basket, baskethidden}) => ({
+    ({productsPerPage, loading, currentPage, numPages,
+      basket, baskethidden, numItemBasket, totalAmount}) => ({
       products: productsPerPage,
       loading: loading,
       currentPage: currentPage,
       numPages: numPages,
       basket: basket,
-      baskethidden: baskethidden
+      baskethidden: baskethidden,
+      numItemBasket: numItemBasket,
+      totalAmount: totalAmount
 
     });
 
@@ -21,7 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
   handlePageClick: (page) => dispatch(handlePageClick(page)),
   filterBy: (item) => dispatch(filterBy(item)),
   addProductToCart: (prod) => dispatch(addProductToCart(prod)),
-  increaseQty: (arrayIndex, qty) => dispatch(increaseQty(arrayIndex, qty)),
+  increaseQty: (prod, qty) => dispatch(increaseQty(prod, qty)),
   hideBasket: () => dispatch({type: type.VIEW_BASKET})
 });
 

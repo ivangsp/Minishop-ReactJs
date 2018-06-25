@@ -12,3 +12,15 @@ instock {
     font-size:48px;
     color:green;
 }
+.icon {
+    color: green;
+    font-size: 20px;
+    cursor: pointer;
+}
+.totalAMount-row {
+    background: gray ;
+    font-size: medium;
+    align-content: center;
+    padding-left: 100px;
+    padding-top: 10px;
+}

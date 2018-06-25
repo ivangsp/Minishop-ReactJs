@@ -25,9 +25,9 @@ export const addProductToCart = (prod) => ({
   payload: prod
 });
 
-export const increaseQty = (index, qty) => ({
+export const increaseQty = (prod, qty) => ({
   type: type.INCREASE_QTY,
-  payload: {index: index, qty: qty}
+  payload: {prod: prod, qty: qty}
 });
 
 // export const viewBasket = () => {
