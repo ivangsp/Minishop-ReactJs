@@ -6,7 +6,7 @@ import {createMemoryHistory} from 'history';
 describe('App', () => {
   const history = createMemoryHistory('/');
 
-  it('renders successfully', () => {
+  it('App renders successfully', () => {
     const app = shallow(<App history={history} />);
     expect(app).not.to.be.empty;
   });

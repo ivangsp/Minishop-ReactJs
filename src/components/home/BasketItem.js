@@ -10,8 +10,12 @@ const BasketItem = ({prod, increaseQty}) => {
       <div className='col-6'>
         <p>{prod.name}</p>
         <p>QTY: {prod.qty}
-          <a><i className=' fas fa-plus ml-2 icon' onClick={() => increaseQty(prod, 1)} /></a>
-          <a><i className='fas fa-minus ml-2 icon' onClick={() => increaseQty(prod, -1)} /></a>
+          <a onClick={() => increaseQty(prod, 1)} id='plus'>
+            <i className=' fas fa-plus ml-2 icon' />
+          </a>
+          <a onClick={() => increaseQty(prod, -1)} id='minus'>
+            <i className='fas fa-minus ml-2 icon' />
+          </a>
         </p>
         <p>Unit price: {prod.price}</p>
       </div>
