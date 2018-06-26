@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Route} from 'react-router-dom';
+import {ConnectedRouter} from 'connected-react-router';
+
 import Home from './containers/Home';
+import ProductPage from './containers/ProductPage';
 
-class App extends Component {
-  render () {
-    return (
-      <div className='App'>
-        <Home />
+const App = ({history}) => {
+  return (
+    <ConnectedRouter history={history}>
+      <div>
+        <Route path='/' exact component={Home} />
+        <Route path='/products' exact component={ProductPage} />
       </div>
-    );
-  }
-}
+    </ConnectedRouter>
+  );
+};
 
+App.propTypes = {
+  history: PropTypes.object.isRequired
+};
 export default App;

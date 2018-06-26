@@ -9,7 +9,8 @@ const intitialState = {
   basket: [],
   numItemBasket: 0,
   baskethidden: true,
-  totalAmount: 0.0
+  totalAmount: 0.0,
+  product: undefined
 };
 
 const reducer = (state = intitialState, action) => {
@@ -111,6 +112,9 @@ const reducer = (state = intitialState, action) => {
 
     case type.VIEW_BASKET:
       return {...state, baskethidden: !state.baskethidden};
+
+    case type.SET_ACTIVE_PRODUCT:
+      return {...state, product: action.payload};
   }
   return state;
 };

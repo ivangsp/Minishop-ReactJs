@@ -29,7 +29,3 @@ export const increaseQty = (prod, qty) => ({
   type: type.INCREASE_QTY,
   payload: {prod: prod, qty: qty}
 });
-
-// export const viewBasket = () => {
-//   type: type.VIEW_BASKET
-// }

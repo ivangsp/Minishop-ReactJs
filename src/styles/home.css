@@ -24,3 +24,6 @@ instock {
     padding-left: 100px;
     padding-top: 10px;
 }
+.clickable {
+    cursor: pointer;
+}

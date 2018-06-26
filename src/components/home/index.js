@@ -32,13 +32,14 @@ class Home extends Component {
                     <div className='col'>
                       <ProductList
                         products={this.props.products}
-                        addProductToCart={(prod) => this.props.addProductToCart(prod)} />
+                        addProductToCart={(prod) => this.props.addProductToCart(prod)}
+                        setActiveProduct={(prod) => this.props.setActiveProduct(prod)} />
                     </div>
                   </div>
                   <div className='row'>
                     <BasketList
                       basket={this.props.basket}
-                      increaseQty={(index, qty) => this.props.increaseQty(index, qty)}
+                      increaseQty={(prod, qty) => this.props.increaseQty(prod, qty)}
                       basketVisible={this.props.basketVisible}
                       totalAmount={this.props.totalAmount} />
                   </div>
@@ -65,12 +66,13 @@ Home.propTypes = {
     currentPage: PropTypes.number.isRequired,
     numPages: PropTypes.number.isRequired,
     addProductToCart: PropTypes.func.isRequired,
-    increaseQty: PropTypes.number.isRequired,
+    increaseQty: PropTypes.func.isRequired,
     basket: PropTypes.array.isRequired,
     hideBasket: PropTypes.func.isRequired,
     basketVisible: PropTypes.bool.isRequired,
     numItemBasket: PropTypes.number.isRequired,
-    totalAmount: PropTypes.number.isRequired
+    totalAmount: PropTypes.number.isRequired,
+    setActiveProduct: PropTypes.func.isRequired
 
 };
 export default Home;

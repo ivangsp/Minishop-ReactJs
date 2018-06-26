@@ -1,3 +1,4 @@
+export const SET_ACTIVE_PRODUCT = 'SET_ACTIVE_PRODUCT';
 export const VIEW_BASKET = 'VIEW_BASKET';
 export const INCREASE_QTY = 'INCREASE_QTY';
 export const ADD_TO_CART = 'ADD_TO_CART';

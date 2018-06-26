@@ -19,13 +19,18 @@ const mapStateToProps =
 
     });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchProducts: () => dispatch({type: type.FETCH_PRODUCTS_REQUESTED}),
   handlePageClick: (page) => dispatch(handlePageClick(page)),
   filterBy: (item) => dispatch(filterBy(item)),
   addProductToCart: (prod) => dispatch(addProductToCart(prod)),
   increaseQty: (prod, qty) => dispatch(increaseQty(prod, qty)),
-  hideBasket: () => dispatch({type: type.VIEW_BASKET})
+  hideBasket: () => dispatch({type: type.VIEW_BASKET}),
+  setActiveProduct: (product) => {
+    dispatch({type: type.SET_ACTIVE_PRODUCT, payload: product});
+    ownProps.history.push('/products');
+  }
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
