@@ -22,7 +22,9 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint src/ test/",
+    "prestart":"yarn lint",
     "test": "mocha",
+    "pretest":"yarn lint",
     "test:watch": "mocha --watch"
   },
   "devDependencies": {

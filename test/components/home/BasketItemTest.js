@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+
 import React from 'react';
 import {shallow} from 'enzyme';
 import BasketItem from '../../../src/components/home/BasketItem';

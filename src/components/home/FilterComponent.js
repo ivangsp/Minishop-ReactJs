@@ -10,15 +10,16 @@ class FilterComponent extends Component {
       countries: []
     };
   }
-  filterByCountry (value) {
+  filterByCountry (e) {
+    const value = e.target.value;
     const country = value === 'all' ? undefined : value;
     this.setState({country: country}, function () {
       this.props.filterBy(this.state);
     });
   }
 
-  filterByStock (value) {
-    console.log('kkk', value);
+  filterByStock (e) {
+    const value = e.target.value;
     const instock = (value === 'all' ? undefined : true);
     this.setState({instock: instock}, () => {
       this.props.filterBy(this.state);
@@ -42,7 +43,7 @@ class FilterComponent extends Component {
         <div className='form-group'>
           <label htmlFor='country'>Country</label>
           <select className='form-control' id='country'
-            onClick={(e) => this.filterByCountry(e.target.value)}>
+            onClick={(e) => this.filterByCountry(e)}>
             <option value='all'>all</option>
             {countries}
           </select>
@@ -51,7 +52,7 @@ class FilterComponent extends Component {
         <div className='form-group'>
           <label htmlFor='stock'>AVailable</label>
           <select className='form-control' id='stock'
-            onClick={(e) => this.filterByStock(e.target.value)}>
+            onClick={(e) => this.filterByStock(e)}>
             <option value={'all'}>all</option>
             <option value={1}>available</option>
           </select>
