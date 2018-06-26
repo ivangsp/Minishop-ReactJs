@@ -1,9 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import {shallow} from 'enzyme';
+import App from '../src/App';
+import {createMemoryHistory} from 'history';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('App', () => {
+  const history = createMemoryHistory('/');
+
+  it('renders successfully', () => {
+    const app = shallow(<App history={history} />);
+    expect(app).not.to.be.empty;
+  });
 });
