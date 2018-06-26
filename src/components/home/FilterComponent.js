@@ -6,7 +6,8 @@ class FilterComponent extends Component {
     super(props);
     this.state = {
       country: undefined,
-      instock: undefined
+      instock: undefined,
+      countries: []
     };
   }
   filterByCountry (value) {
@@ -23,23 +24,32 @@ class FilterComponent extends Component {
     });
   }
 
+  componentDidMount () {
+    var countries = this.props.products.map((obj) => { return obj.store; });
+    countries = countries.filter((v, i) => { return countries.indexOf(v) === i; });
+    this.setState({countries: countries});
+  };
+
   render () {
+    const countries = this.state.countries.map((ctry, index) => {
+      return <option key={index} value={ctry}>{ctry}</option>;
+    });
+
     return (
       <div>
         <p className='text-center'>Filter By</p>
         <div className='form-group'>
-          <label htmlFor='exampleFormControlSelect1'>Country</label>
-          <select className='form-control' id='exampleFormControlSelect1'
+          <label htmlFor='country'>Country</label>
+          <select className='form-control' id='country'
             onClick={(e) => this.filterByCountry(e.target.value)}>
-            <option >all</option>
-            <option value={'Estonia'}>Estonia</option>
-            <option value={'Finland'}>Finland</option>
+            <option value='all'>all</option>
+            {countries}
           </select>
         </div>
 
         <div className='form-group'>
-          <label htmlFor='exampleFormControlSelect1'>AVailable</label>
-          <select className='form-control' id='exampleFormControlSelect1'
+          <label htmlFor='stock'>AVailable</label>
+          <select className='form-control' id='stock'
             onClick={(e) => this.filterByStock(e)}>
             <option value={undefined}>all</option>
             <option value={1}>available</option>
@@ -50,6 +60,7 @@ class FilterComponent extends Component {
   }
 }
 FilterComponent.propTypes = {
-  filterBy: PropTypes.func.isRequired
+  filterBy: PropTypes.func.isRequired,
+  products: PropTypes.array.isRequired
 };
 export default FilterComponent;

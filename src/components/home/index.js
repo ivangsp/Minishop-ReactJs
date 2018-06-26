@@ -27,7 +27,9 @@ class Home extends Component {
                 : <div>
                   <div className='row'>
                     <div className='col-2'>
-                      <FilterComponent filterBy={(item) => this.props.filterBy(item)} />
+                      <FilterComponent
+                        filterBy={(item) => this.props.filterBy(item)}
+                        products={this.props.products} />
                     </div>
                     <div className='col'>
                       <ProductList
