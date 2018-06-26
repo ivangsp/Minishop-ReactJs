@@ -28,7 +28,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   hideBasket: () => dispatch({type: type.VIEW_BASKET}),
   setActiveProduct: (product) => {
     dispatch({type: type.SET_ACTIVE_PRODUCT, payload: product});
-    ownProps.history.push('/products');
+    console.log('pp', product.id);
+    ownProps.history.push('/products/' + product.id);
   }
 
 });

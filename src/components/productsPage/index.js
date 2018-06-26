@@ -1,6 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs,indent */
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import NavBar from '../common/NavBar';
 import BasketList from '../home/BasketList';
@@ -12,8 +13,15 @@ const ProductPage = (props) => {
             <NavBar hideBasket={() => props.hideBasket()}
               basket={props.basket} numItemBasket={props.numItemBasket} />
             <div className='row'>
-              <Products prod={props.product} addProductToCart={() => props.addProductToCart(props.product)} />
-
+              <div className='col-md-6 offset-md-3'>
+                <Products prod={props.product}
+                  addProductToCart={() => props.addProductToCart(props.product)} />
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col-md-2'>
+                <Link to='/'>Back </Link>
+              </div>
             </div>
             <div className='row'>
               <BasketList

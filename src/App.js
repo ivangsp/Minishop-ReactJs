@@ -11,7 +11,7 @@ const App = ({history}) => {
     <ConnectedRouter history={history}>
       <div>
         <Route path='/' exact component={Home} />
-        <Route path='/products' exact component={ProductPage} />
+        <Route path='/products/:id' exact component={ProductPage} />
       </div>
     </ConnectedRouter>
   );

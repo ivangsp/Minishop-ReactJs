@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 const NavBar = ({hideBasket, basket, numItemBasket}) => {
   return (
-    <div>
+    <div className='container-fluid'>
       <nav className='navbar navbar-light bg-light justify-content-between'>
-        <a className='navbar-brand' href='#'>
+        <Link to='/' className='navbar-brand' href='#'>
           <h1 className='App-title'>Mini shop</h1>
-        </a>
+        </Link>
         <button className='btn btn-outline-success ml-3' type='button'
           onClick={() => hideBasket()}
           data-toggle='modal' data-target='#exampleModalCenter'>
