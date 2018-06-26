@@ -5,7 +5,7 @@ import BasketItem from './BasketItem';
 
 const BasketList = ({basket, increaseQty, baskethidden, totalAmount}) => {
   const BasketItemNode = basket.map((prod, index) => {
-    return (<BasketItem increaseQty={increaseQty} prod={prod} />);
+    return (<BasketItem key={index} increaseQty={increaseQty} prod={prod} />);
   });
   return (
     <div className='modal fade' id='exampleModalCenter' tabIndex='-1' role='dialog'
@@ -30,7 +30,7 @@ const BasketList = ({basket, increaseQty, baskethidden, totalAmount}) => {
               {totalAmount > 0
                 ? <div className='row totalAMount-row'>
                   <div className='col-6 offset-md-3 text-center'>
-                    <p>Total Amount: <b>{totalAmount}</b></p>
+                    <p>Total Amount:  <b> &euro; {totalAmount}</b></p>
                   </div>
                 </div>
                 : null

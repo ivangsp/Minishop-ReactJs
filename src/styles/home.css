@@ -1,6 +1,6 @@
 .imageSize {
     height: 150px;
-    width: auto;
+    width: 200px;
 }
 .outStock {
     color: red;
@@ -26,4 +26,8 @@ instock {
 }
 .clickable {
     cursor: pointer;
+}
+.card {
+    width: 200px;
+    height: 100%;
 }

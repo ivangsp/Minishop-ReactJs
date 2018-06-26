@@ -26,12 +26,12 @@ class Home extends Component {
 
                 : <div>
                   <div className='row'>
-                    <div className='col-2'>
+                    <div className='col-sm-12 col-md-2'>
                       <FilterComponent
                         filterBy={(item) => this.props.filterBy(item)}
                         products={this.props.products} />
                     </div>
-                    <div className='col'>
+                    <div className='col-sm-12 col-md-10'>
                       <ProductList
                         products={this.props.products}
                         addProductToCart={(prod) => this.props.addProductToCart(prod)}

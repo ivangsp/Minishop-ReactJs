@@ -63,10 +63,11 @@ const reducer = (state = intitialState, action) => {
         return {...state,
           filteredProducts: newArray,
           productsPerPage: newArray.slice((state.currentPage * 12), ((state.currentPage + 1) * 12))};
+      } else {
+        return {...state,
+          filteredProducts: state.products,
+          productsPerPage: state.products.slice((state.currentPage * 12), ((state.currentPage + 1) * 12))};
       }
-      return {...state,
-        filteredProducts: state.products,
-        productsPerPage: state.products.slice((state.currentPage * 12), ((state.currentPage + 1) * 12))};
 
     case type.ADD_TO_CART:
 

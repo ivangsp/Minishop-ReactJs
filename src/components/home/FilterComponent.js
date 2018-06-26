@@ -18,6 +18,7 @@ class FilterComponent extends Component {
   }
 
   filterByStock (value) {
+    console.log('kkk', value);
     const instock = (value === 'all' ? undefined : true);
     this.setState({instock: instock}, () => {
       this.props.filterBy(this.state);
@@ -50,8 +51,8 @@ class FilterComponent extends Component {
         <div className='form-group'>
           <label htmlFor='stock'>AVailable</label>
           <select className='form-control' id='stock'
-            onClick={(e) => this.filterByStock(e)}>
-            <option value={undefined}>all</option>
+            onClick={(e) => this.filterByStock(e.target.value)}>
+            <option value={'all'}>all</option>
             <option value={1}>available</option>
           </select>
         </div>

@@ -17,7 +17,7 @@ const BasketItem = ({prod, increaseQty}) => {
             <i className='fas fa-minus ml-2 icon' />
           </a>
         </p>
-        <p>Unit price: {prod.price}</p>
+        <p>Unit price: &euro;{prod.price}</p>
       </div>
     </div>
   );
