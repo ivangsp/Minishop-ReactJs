@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bc999ef5-e798-4686-87fd-e0e985904405" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/components/home/BasketItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/BasketItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/BasketList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/BasketList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/FilterComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/FilterComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/ProductItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/ProductItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/productsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/productsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/productsPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/productsPage/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +32,8 @@
       <file leaf-file-name="BasketItem.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/home/BasketItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+            <state relative-caret-position="120">
+              <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -46,13 +41,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/home/ProductList.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/productsPage/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="340">
+              <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#53#79#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,20 +56,8 @@
       <file leaf-file-name="BasketList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/home/BasketList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="360">
               <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductItem.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/home/ProductItem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -85,8 +68,8 @@
       <file leaf-file-name="home.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/styles/home.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+            <state relative-caret-position="534">
+              <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -136,7 +119,6 @@
         <option value="$PROJECT_DIR$/src/containers/Home.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/productsPage/Product.js" />
-        <option value="$PROJECT_DIR$/src/components/productsPage/index.js" />
         <option value="$PROJECT_DIR$/src/components/common/NavBar.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.eslintrc.js" />
@@ -145,13 +127,14 @@
         <option value="$PROJECT_DIR$/test/components/home/BasketItemTest.js" />
         <option value="$PROJECT_DIR$/test/components/home/BasketListTest.js" />
         <option value="$PROJECT_DIR$/test/components/home/FilterComponentTest.js" />
-        <option value="$PROJECT_DIR$/src/components/home/BasketItem.js" />
         <option value="$PROJECT_DIR$/src/components/home/FilterComponent.js" />
         <option value="$PROJECT_DIR$/src/reducers/productsReducer.js" />
         <option value="$PROJECT_DIR$/src/components/home/index.js" />
-        <option value="$PROJECT_DIR$/src/styles/home.css" />
         <option value="$PROJECT_DIR$/src/components/home/BasketList.js" />
+        <option value="$PROJECT_DIR$/src/styles/home.css" />
         <option value="$PROJECT_DIR$/src/components/home/ProductItem.js" />
+        <option value="$PROJECT_DIR$/src/components/home/BasketItem.js" />
+        <option value="$PROJECT_DIR$/src/components/productsPage/index.js" />
       </list>
     </option>
   </component>
@@ -206,7 +189,7 @@
               <item name="minishop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="productsPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="minishop" type="b2602c69:ProjectViewProjectNode" />
@@ -291,12 +274,12 @@
       <workItem from="1529735041379" duration="9845000" />
       <workItem from="1529754623823" duration="1533000" />
       <workItem from="1529864208348" duration="13363000" />
-      <workItem from="1529909703605" duration="61741000" />
+      <workItem from="1529909703605" duration="62337000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93910000" />
+    <option name="totallyTimeSpent" value="94506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="69" y="34" width="1851" height="1040" extended-state="0" />
@@ -575,16 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/productsPage/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="e#53#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -680,16 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home/BasketItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/home/FilterComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -719,18 +682,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/home.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home/BasketList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="534">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -750,6 +703,36 @@
           <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home/BasketList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home/BasketItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/productsPage/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+          <folding>
+            <element signature="e#53#79#0" expanded="true" />
           </folding>
         </state>
       </provider>

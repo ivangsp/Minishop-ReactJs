@@ -24,11 +24,13 @@ const ProductPage = (props) => {
               </div>
             </div>
             <div className='row'>
-              <BasketList
-                basket={props.basket}
-                increaseQty={(index, qty) => props.increaseQty(index, qty)}
-                basketVisible={props.basketVisible}
-                totalAmount={props.totalAmount} />
+              <div className='col-md-8 offset-md-2 col-sm-12'>
+                <BasketList
+                  basket={props.basket}
+                  increaseQty={(index, qty) => props.increaseQty(index, qty)}
+                  basketVisible={props.basketVisible}
+                  totalAmount={props.totalAmount} />
+              </div>
             </div>
 
           </div>

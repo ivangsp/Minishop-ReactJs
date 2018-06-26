@@ -5,7 +5,7 @@ const Product = ({prod, addProductToCart}) => {
   return (
     <div>
       <div className='row '>
-        <div className='col-4'>
+        <div className='col-md-4 col-sm-12'>
           <img src={prod.image} alt='' className='imageSize' />
         </div>
         <div className='col'>
@@ -18,9 +18,13 @@ const Product = ({prod, addProductToCart}) => {
         </div>
       </div>
       <div className='row'>
-        <div className='col-2 offset-md-5'>
-          <button type='button' className='btn btn-primary'
-            onClick={() => addProductToCart(prod)}>Add to Cart</button>
+        <div className='col-md-2 offset-md-5 col-sm-12'>
+          {prod.instock
+            ? <a className='btn btn-primary'
+              onClick={() => addProductToCart(prod)}>Add to Cart
+            </a>
+            : null
+          }
         </div>
       </div>
     </div>

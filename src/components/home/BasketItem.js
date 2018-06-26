@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 const BasketItem = ({prod, increaseQty}) => {
   return (
     <div className='row mb-3'>
-      <div className='col-6'>
+      <div className='col-md-6 col-sm-5'>
         <img src={prod.image} alt='' className='imageSize' />
       </div>
-      <div className='col-6'>
+      <div className='col-md-6 col-sm-7'>
         <p>{prod.name}</p>
         <p>QTY: {prod.qty}
           <a onClick={() => increaseQty(prod, 1)} id='plus'>
