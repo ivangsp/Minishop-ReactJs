@@ -32,7 +32,10 @@ const reducer = (state = intitialState, action) => {
       if (nextPage >= 0 || nextPage <= state.numPages) {
         return {
           ...state,
-          productsPerPage: state.filteredProducts.slice((nextPage * 12), ((nextPage + 1) * 12)),
+          productsPerPage: state.filteredProducts.slice(
+            nextPage * 12,
+            (nextPage + 1) * 12
+          ),
           currentPage: nextPage,
           numPages: numpages
         };
@@ -40,37 +43,66 @@ const reducer = (state = intitialState, action) => {
       return state;
 
     case type.FILTERBY:
-      if (action.payload.country !== undefined && action.payload.instock === undefined) {
-        const newArray = state.products.filter((el) => {
+      if (
+        action.payload.country !== undefined &&
+        action.payload.instock === undefined
+      ) {
+        const newArray = state.products.filter(el => {
           return el.store === action.payload.country;
         });
-        return {...state,
+        return {
+          ...state,
           filteredProducts: newArray,
-          productsPerPage: newArray.slice((state.currentPage * 12), ((state.currentPage + 1) * 12))};
-      } else if (action.payload.instock !== undefined && action.payload.country === undefined) {
-        const newArray = state.products.filter((el) => {
+          productsPerPage: newArray.slice(
+            state.currentPage * 12,
+            (state.currentPage + 1) * 12
+          )
+        };
+      } else if (
+        action.payload.instock !== undefined &&
+        action.payload.country === undefined
+      ) {
+        const newArray = state.products.filter(el => {
           return el.instock === action.payload.instock;
         });
-        return {...state,
+        return {
+          ...state,
           filteredProducts: newArray,
-          productsPerPage: newArray.slice((state.currentPage * 12), ((state.currentPage + 1) * 12))
+          productsPerPage: newArray.slice(
+            state.currentPage * 12,
+            (state.currentPage + 1) * 12
+          )
         };
-      } else if (action.payload.instock !== undefined && action.payload.country !== undefined) {
-        const newArray = state.products.filter((el) => {
-          return el.store === action.payload.country &&
-          el.instock === action.payload.instock;
+      } else if (
+        action.payload.instock !== undefined &&
+        action.payload.country !== undefined
+      ) {
+        const newArray = state.products.filter(el => {
+          return (
+            el.store === action.payload.country &&
+            el.instock === action.payload.instock
+          );
         });
-        return {...state,
+        return {
+          ...state,
           filteredProducts: newArray,
-          productsPerPage: newArray.slice((state.currentPage * 12), ((state.currentPage + 1) * 12))};
+          productsPerPage: newArray.slice(
+            state.currentPage * 12,
+            (state.currentPage + 1) * 12
+          )
+        };
       } else {
-        return {...state,
+        return {
+          ...state,
           filteredProducts: state.products,
-          productsPerPage: state.products.slice((state.currentPage * 12), ((state.currentPage + 1) * 12))};
+          productsPerPage: state.products.slice(
+            state.currentPage * 12,
+            (state.currentPage + 1) * 12
+          )
+        };
       }
 
     case type.ADD_TO_CART:
-
       if (!containsObject(action.payload, state.basket)) {
         var product = action.payload;
         product['qty'] = 1;
@@ -79,7 +111,12 @@ const reducer = (state = intitialState, action) => {
         const numItemBasket = state.numItemBasket + 1;
         // update the totalAmount
         const totalAmount = updateTotalAmount(oldBasket);
-        return {...state, basket: oldBasket, numItemBasket: numItemBasket, totalAmount: totalAmount};
+        return {
+          ...state,
+          basket: oldBasket,
+          numItemBasket: numItemBasket,
+          totalAmount: totalAmount
+        };
       }
       return state;
 
@@ -106,21 +143,28 @@ const reducer = (state = intitialState, action) => {
         }
         // update the totalAmount
         const totalAmount = updateTotalAmount(newBasket);
-        return {...state, basket: newBasket, numItemBasket: numItems, totalAmount: totalAmount};
+        return {
+          ...state,
+          basket: newBasket,
+          numItemBasket: numItems,
+          totalAmount: totalAmount
+        };
       }
       break;
-      // return state;
+    // return state;
 
     case type.VIEW_BASKET:
-      return {...state, baskethidden: !state.baskethidden};
+      return { ...state, baskethidden: !state.baskethidden };
 
     case type.SET_ACTIVE_PRODUCT:
-      return {...state, product: action.payload};
+      return { ...state, product: action.payload };
+
+    default:
+      return state;
   }
-  return state;
 };
 
-function containsObject (obj, list) {
+function containsObject(obj, list) {
   var i;
   for (i = 0; i < list.length; i++) {
     if (list[i].id === obj.id) {
@@ -131,7 +175,7 @@ function containsObject (obj, list) {
   return false;
 }
 
-const updateTotalAmount = (basket) => {
+const updateTotalAmount = basket => {
   var i;
   var amount = 0;
   for (i = 0; i < basket.length; i++) {
