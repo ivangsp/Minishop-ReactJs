@@ -56,9 +56,7 @@ export const addProductToCart = prod => (dispatch, getState) => {
         msg: 'added successfully!!!'
       }
     });
-  }
-  // product ealready exists in the basket
-  else {
+  } else {
     dispatch({
       type: type.SET_MESSAGE,
       payload: 'Already exists in the cart'

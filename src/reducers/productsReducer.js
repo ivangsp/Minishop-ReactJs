@@ -81,6 +81,9 @@ const reducer = (state = intitialState, action) => {
     case type.SET_ACTIVE_PRODUCT:
       return { ...state, product: action.payload };
 
+    case type.SET_MESSAGE:
+      return { ...state, msg: action.payload };
+
     case type.DISMISS_MESSAGE:
       return { ...state, msg: null };
 
