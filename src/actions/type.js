@@ -1,3 +1,5 @@
+export const DISMISS_MESSAGE = 'DISMISS_MESSAGE';
+export var SET_MESSAGE = 'SET_MESSAGE';
 export const SET_ACTIVE_PRODUCT = 'SET_ACTIVE_PRODUCT';
 export const VIEW_BASKET = 'VIEW_BASKET';
 export const INCREASE_QTY = 'INCREASE_QTY';

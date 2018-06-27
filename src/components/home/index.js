@@ -7,6 +7,7 @@ import ProductList from './ProductList';
 import FilterComponent from './FilterComponent';
 import Pagination from './Pagination';
 import BasketList from './BasketList';
+import SuccessMessage from '../common/SuccessMessage';
 
 class Home extends Component {
   componentDidMount() {
@@ -21,6 +22,20 @@ class Home extends Component {
           basket={this.props.basket}
           numItemBasket={this.props.numItemBasket}
         />
+
+        {/* pop message */}
+        {this.props.msg !== null ? (
+          <div className="row">
+            <div className="col-md-6 col-sm-12 offset-md-3">
+              <SuccessMessage
+                msg={this.props.msg}
+                dismissMessage={this.props.dismissMessage}
+              />
+            </div>
+          </div>
+        ) : null}
+
+        {/* loader */}
         {this.props.loading ? (
           <div className="row">
             <div className="col-6 col-md-offset-3">
@@ -82,6 +97,8 @@ Home.propTypes = {
   baskethidden: PropTypes.bool.isRequired,
   numItemBasket: PropTypes.number.isRequired,
   totalAmount: PropTypes.number.isRequired,
-  setActiveProduct: PropTypes.func.isRequired
+  setActiveProduct: PropTypes.func.isRequired,
+  msg: PropTypes.string,
+  dismissMessage: PropTypes.func.isRequired
 };
 export default Home;

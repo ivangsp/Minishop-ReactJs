@@ -16,7 +16,8 @@ const mapStateToProps = ({
   basket,
   baskethidden,
   numItemBasket,
-  totalAmount
+  totalAmount,
+  msg
 }) => ({
   products: productsPerPage,
   loading: loading,
@@ -25,7 +26,8 @@ const mapStateToProps = ({
   basket: basket,
   baskethidden: baskethidden,
   numItemBasket: numItemBasket,
-  totalAmount: totalAmount
+  totalAmount: totalAmount,
+  msg: msg
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -38,7 +40,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   setActiveProduct: product => {
     dispatch({ type: type.SET_ACTIVE_PRODUCT, payload: product });
     ownProps.history.push('/products/' + product.id);
-  }
+  },
+  dismissMessage: () => dispatch({ type: type.DISMISS_MESSAGE })
 });
 
 export default connect(
