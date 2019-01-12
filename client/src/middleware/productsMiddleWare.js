@@ -2,19 +2,14 @@ import axios from 'axios';
 import * as type from '../actions/type';
 import { errorOcuured } from '../actions/index';
 
-const SERVER_URL = 'https://erply-challenge.herokuapp.com/list';
-const KEY = 'fae7b9f6-6363-45a1-a9c9-3def2dae206d';
+const SERVER_URL = '/api';
 
 export const productsMiddleWare = store => next => {
   return action => {
     next(action);
     if (action.type === type.FETCH_PRODUCTS_REQUESTED) {
       axios
-        .get(SERVER_URL, {
-          params: {
-            AUTH: KEY
-          }
-        })
+        .get(SERVER_URL + '/products')
         .then(response => {
           if (response.status === 200) {
             store.dispatch({

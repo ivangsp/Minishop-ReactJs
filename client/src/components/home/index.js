@@ -10,13 +10,13 @@ import BasketList from './BasketList';
 import SuccessMessage from '../common/SuccessMessage';
 
 class Home extends Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.fetchProducts();
   }
 
-  render() {
+  render () {
     return (
-      <div className="container-fluid">
+      <div className='container-fluid'>
         <NavBar
           hideBasket={() => this.props.hideBasket()}
           basket={this.props.basket}
@@ -25,8 +25,8 @@ class Home extends Component {
 
         {/* pop message */}
         {this.props.msg !== null ? (
-          <div className="row">
-            <div className="col-md-6 col-sm-12 offset-md-3">
+          <div className='row'>
+            <div className='col-md-6 col-sm-12 offset-md-3'>
               <SuccessMessage
                 msg={this.props.msg}
                 dismissMessage={this.props.dismissMessage}
@@ -37,21 +37,21 @@ class Home extends Component {
 
         {/* loader */}
         {this.props.loading ? (
-          <div className="row">
-            <div className="col-6 col-md-offset-3">
-              <i className="fa fa-spinner spinner" />
+          <div className='row'>
+            <div className='col-6 col-md-offset-3'>
+              <i className='fa fa-spinner spinner' />
             </div>
           </div>
         ) : (
           <div>
-            <div className="row">
-              <div className="col-sm-12 col-md-2">
+            <div className='row'>
+              <div className='col-sm-12 col-md-2'>
                 <FilterComponent
                   filterBy={item => this.props.filterBy(item)}
                   products={this.props.products}
                 />
               </div>
-              <div className="col-sm-12 col-md-10">
+              <div className='col-sm-12 col-md-10'>
                 <ProductList
                   products={this.props.products}
                   addProductToCart={prod => this.props.addProductToCart(prod)}
@@ -59,7 +59,7 @@ class Home extends Component {
                 />
               </div>
             </div>
-            <div className="row">
+            <div className='row'>
               <BasketList
                 basket={this.props.basket}
                 increaseQty={(prod, qty) => this.props.increaseQty(prod, qty)}
@@ -67,8 +67,8 @@ class Home extends Component {
                 totalAmount={this.props.totalAmount}
               />
             </div>
-            <div className="row">
-              <div className="col-2 col-md-offset-5 ">
+            <div className='row'>
+              <div className='col-2 col-md-offset-5 '>
                 <Pagination
                   numPages={this.props.numPages}
                   currentPage={this.props.currentPage}
