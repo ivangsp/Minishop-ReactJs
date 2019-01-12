@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import {Redirect} from 'react-router-dom';
 
 const ProductItem = props => {
   return (
@@ -30,7 +29,6 @@ const ProductItem = props => {
             <a
               className="btn btn-primary"
               onClick={() => props.addProductToCart(props.product)}
-              href=""
             >
               Add to Cart
             </a>

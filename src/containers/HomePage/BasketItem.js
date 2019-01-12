@@ -11,7 +11,7 @@ const BasketItem = ({ prod, increaseQty }) => {
         <p>{prod.name}</p>
         <p>
           QTY: {prod.qty}
-          <a onClick={() => increaseQty(prod, 1)} id="plus" href="">
+          <a onClick={() => increaseQty(prod, 1)} id="plus">
             <i className=" fas fa-plus ml-2 icon" />
           </a>
           <a onClick={() => increaseQty(prod, -1)} id="minus">

@@ -31,7 +31,6 @@ const Product = ({ prod, addProductToCart }) => {
             <a
               className="btn btn-primary"
               onClick={() => addProductToCart(prod)}
-              href=""
             >
               Add to Cart
             </a>

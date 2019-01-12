@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import {shallow} from 'enzyme';
-import NaBar from '../../../src/components/common/NavBar';
+import NaBar from '../../../src/components/NavBar';
 
 describe('NaBar', () => {
   it('NavBar renders successfully', () => {

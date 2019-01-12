@@ -35,6 +35,7 @@ module.exports = {
             "error",
             "always"
         ],
-        "max-len": ["error", 120]
+        "max-len": ["error", 120],
+        "jsx-quotes": ["error", "prefer-double"]
     }
 };

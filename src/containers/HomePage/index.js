@@ -1,15 +1,24 @@
 /* eslint-disable no-mixed-spaces-and-tabs,indent */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as type from '../../actions/type';
 
-import NavBar from '../common/NavBar';
+import NavBar from '../../components/NavBar';
 import ProductList from './ProductList';
 import FilterComponent from './FilterComponent';
 import Pagination from './Pagination';
 import BasketList from './BasketList';
-import SuccessMessage from '../common/SuccessMessage';
+import AlertSuccess from '../../components/AlertSuccess';
 
-class Home extends Component {
+import {
+  handlePageClick,
+  filterBy,
+  addProductToCart,
+  increaseQty
+} from '../../actions/index';
+
+class HomePage extends Component {
   componentDidMount() {
     this.props.fetchProducts();
   }
@@ -27,7 +36,7 @@ class Home extends Component {
         {this.props.msg !== null ? (
           <div className="row">
             <div className="col-md-6 col-sm-12 offset-md-3">
-              <SuccessMessage
+              <AlertSuccess
                 msg={this.props.msg}
                 dismissMessage={this.props.dismissMessage}
               />
@@ -82,7 +91,7 @@ class Home extends Component {
     );
   }
 }
-Home.propTypes = {
+HomePage.propTypes = {
   fetchProducts: PropTypes.func.isRequired,
   handlePageClick: PropTypes.func.isRequired,
   products: PropTypes.array.isRequired,
@@ -101,4 +110,44 @@ Home.propTypes = {
   msg: PropTypes.string,
   dismissMessage: PropTypes.func.isRequired
 };
-export default Home;
+
+const mapStateToProps = ({
+  productsPerPage,
+  loading,
+  currentPage,
+  numPages,
+  basket,
+  baskethidden,
+  numItemBasket,
+  totalAmount,
+  msg
+}) => ({
+  products: productsPerPage,
+  loading: loading,
+  currentPage: currentPage,
+  numPages: numPages,
+  basket: basket,
+  baskethidden: baskethidden,
+  numItemBasket: numItemBasket,
+  totalAmount: totalAmount,
+  msg: msg
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchProducts: () => dispatch({ type: type.FETCH_PRODUCTS_REQUESTED }),
+  handlePageClick: page => dispatch(handlePageClick(page)),
+  filterBy: item => dispatch(filterBy(item)),
+  addProductToCart: prod => dispatch(addProductToCart(prod)),
+  increaseQty: (prod, qty) => dispatch(increaseQty(prod, qty)),
+  hideBasket: () => dispatch({ type: type.VIEW_BASKET }),
+  setActiveProduct: product => {
+    dispatch({ type: type.SET_ACTIVE_PRODUCT, payload: product });
+    ownProps.history.push('/products/' + product.id);
+  },
+  dismissMessage: () => dispatch({ type: type.DISMISS_MESSAGE })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePage);

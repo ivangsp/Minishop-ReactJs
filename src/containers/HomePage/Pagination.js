@@ -8,11 +8,7 @@ const Pagination = props => {
         {/* go to the previous page */}
         {props.currentPage > 0 ? (
           <li className="page-item">
-            <a
-              className="page-link"
-              href=""
-              onClick={() => props.handlePageClick(-1)}
-            >
+            <a className="page-link" onClick={() => props.handlePageClick(-1)}>
               Previous
             </a>
           </li>

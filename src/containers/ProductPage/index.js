@@ -3,9 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import NavBar from '../common/NavBar';
-import BasketList from '../home/BasketList';
+import NavBar from '../../components/NavBar';
+import BasketList from '../HomePage/BasketList';
 import Products from './Product';
+
+import { connect } from 'react-redux';
+import * as type from '../../actions/type';
+import { addProductToCart, increaseQty } from '../../actions/index';
 
 const ProductPage = props => {
   return (
@@ -41,6 +45,7 @@ const ProductPage = props => {
     </div>
   );
 };
+
 ProductPage.propTypes = {
   addProductToCart: PropTypes.func.isRequired,
   basket: PropTypes.array.isRequired,
@@ -51,4 +56,32 @@ ProductPage.propTypes = {
   increaseQty: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired
 };
-export default ProductPage;
+
+const mapStateToProps = ({
+  productsPerPage,
+  loading,
+  basket,
+  baskethidden,
+  numItemBasket,
+  totalAmount,
+  product
+}) => ({
+  products: productsPerPage,
+  loading: loading,
+  basket: basket,
+  baskethidden: baskethidden,
+  numItemBasket: numItemBasket,
+  totalAmount: totalAmount,
+  product: product
+});
+
+const mapDispatchToProps = dispatch => ({
+  addProductToCart: prod => dispatch(addProductToCart(prod)),
+  increaseQty: (prod, qty) => dispatch(increaseQty(prod, qty)),
+  hideBasket: () => dispatch({ type: type.VIEW_BASKET })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductPage);
