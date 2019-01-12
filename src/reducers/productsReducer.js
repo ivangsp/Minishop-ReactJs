@@ -28,8 +28,6 @@ const reducer = (state = intitialState, action) => {
       };
 
     case type.SET_PRODUCTS_PER_PAGE:
-      // check if the nextpage is not less than 0
-      // and also not more than the total number of pages
       if (
         action.payload.nextPage >= 0 ||
         action.payload.nextPage <= state.numPages

@@ -10,6 +10,8 @@ export const fetchedProducts = products => ({
   payload: products
 });
 
+export const fetchProducts = () => ({ type: type.FETCH_PRODUCTS_REQUESTED });
+
 export const errorOcuured = errorMsg => ({
   type: type.ERROR_OCCURED,
   payload: errorMsg

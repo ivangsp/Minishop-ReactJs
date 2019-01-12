@@ -1,8 +1,11 @@
-/* eslint-disable no-mixed-spaces-and-tabs,indent */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as type from '../../actions/type';
+import {
+  DISMISS_MESSAGE,
+  SET_ACTIVE_PRODUCT,
+  VIEW_BASKET
+} from '../../actions/type';
 
 import NavBar from '../../components/NavBar';
 import ProductList from './ProductList';
@@ -12,6 +15,7 @@ import BasketList from './BasketList';
 import AlertSuccess from '../../components/AlertSuccess';
 
 import {
+  fetchProducts,
   handlePageClick,
   filterBy,
   addProductToCart,
@@ -91,6 +95,7 @@ class HomePage extends Component {
     );
   }
 }
+
 HomePage.propTypes = {
   fetchProducts: PropTypes.func.isRequired,
   handlePageClick: PropTypes.func.isRequired,
@@ -134,17 +139,17 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchProducts: () => dispatch({ type: type.FETCH_PRODUCTS_REQUESTED }),
+  fetchProducts: () => dispatch(fetchProducts()),
   handlePageClick: page => dispatch(handlePageClick(page)),
   filterBy: item => dispatch(filterBy(item)),
   addProductToCart: prod => dispatch(addProductToCart(prod)),
   increaseQty: (prod, qty) => dispatch(increaseQty(prod, qty)),
-  hideBasket: () => dispatch({ type: type.VIEW_BASKET }),
+  hideBasket: () => dispatch({ type: VIEW_BASKET }),
   setActiveProduct: product => {
-    dispatch({ type: type.SET_ACTIVE_PRODUCT, payload: product });
+    dispatch({ type: SET_ACTIVE_PRODUCT, payload: product });
     ownProps.history.push('/products/' + product.id);
   },
-  dismissMessage: () => dispatch({ type: type.DISMISS_MESSAGE })
+  dismissMessage: () => dispatch({ type: DISMISS_MESSAGE })
 });
 
 export default connect(
