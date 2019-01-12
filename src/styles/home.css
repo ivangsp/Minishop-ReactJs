@@ -1,0 +1,33 @@
+.imageSize {
+  height: 150px;
+  width: 200px;
+}
+.outStock {
+  color: red;
+}
+instock {
+  font-size: small;
+}
+.spinner {
+  font-size: 48px;
+  color: green;
+}
+.icon {
+  color: green;
+  font-size: 20px;
+  cursor: pointer;
+}
+.totalAMount-row {
+  background: gray;
+  font-size: medium;
+  align-content: center;
+  padding-left: 100px;
+  padding-top: 10px;
+}
+.clickable {
+  cursor: pointer;
+}
+.card {
+  width: 200px;
+  height: 100%;
+}
